@@ -462,9 +462,9 @@ def cluster_random(pcas, molec_name,cluster_mejor):
     compilado_silhoutte = []
     compilado_db = []
     compilado_ch = []
-    compilado_dunn = []
+    #compilado_dunn = []
     
-    for i in range(500):
+    for i in range(100):
         random.seed(a=i, version=2)
         random_clusters = []
         for x in molec_name:
@@ -475,9 +475,9 @@ def cluster_random(pcas, molec_name,cluster_mejor):
         compilado_db.append(db_random)
         ch_random = calinski_harabasz_score(pcas, np.ravel(random_clusters))
         compilado_ch.append(ch_random)
-        dist_dunn = pairwise_distances(pcas)
-        dunn_randome = dunn(dist_dunn, np.ravel(random_clusters))
-        compilado_dunn.append(dunn_randome)
+        #dist_dunn = pairwise_distances(pcas)
+        #dunn_randome = dunn(dist_dunn, np.ravel(random_clusters))
+        #compilado_dunn.append(dunn_randome)
 
     sil_random = round(mean(compilado_silhoutte),4)
     sil_random_st = str(round(stdev(compilado_silhoutte),4))
@@ -485,10 +485,10 @@ def cluster_random(pcas, molec_name,cluster_mejor):
     db_random_st = str(round(stdev(compilado_db),4))
     ch_random = round(mean(compilado_ch),4)
     ch_random_st = str(round(stdev(compilado_ch),4))
-    dunn_random = round(mean(compilado_dunn),4)
-    dunn_random_st = str(round(stdev(compilado_dunn),4))
+    #dunn_random = round(mean(compilado_dunn),4)
+    #dunn_random_st = str(round(stdev(compilado_dunn),4))
 
-    return sil_random, sil_random_st, db_random, db_random_st, ch_random, ch_random_st, dunn_random, dunn_random_st
+    return sil_random, sil_random_st, db_random, db_random_st, ch_random, ch_random_st
 
 
 ### Clustering performance determination ###
@@ -496,7 +496,7 @@ def cluster_random(pcas, molec_name,cluster_mejor):
 def coeficientes_clustering(pcas, df_molecula_cluster_actual, cluster_mejor, molec_name,vuelta):
     from sklearn.mixture import GaussianMixture
 
-    sil_random, sil_random_st, db_random, db_random_st, ch_random, ch_random_st, dunn_random, dunn_random_st = cluster_random(pcas, molec_name,cluster_mejor)
+    sil_random, sil_random_st, db_random, db_random_st, ch_random, ch_random_st = cluster_random(pcas, molec_name,cluster_mejor)
     silhouette_avg = round(silhouette_score(pcas, np.ravel(df_molecula_cluster_actual)),4)
     gmm = GaussianMixture(n_components=cluster_mejor, init_params='kmeans')
     gmm.fit(pcas)
@@ -504,11 +504,11 @@ def coeficientes_clustering(pcas, df_molecula_cluster_actual, cluster_mejor, mol
     db_score = round(davies_bouldin_score(pcas, np.ravel(df_molecula_cluster_actual)),4)
     ch_score = round(calinski_harabasz_score(pcas, np.ravel(df_molecula_cluster_actual)),4)
     dist_dunn = pairwise_distances(pcas)
-    dunn_score = round(dunn(dist_dunn, np.ravel(df_molecula_cluster_actual)),4)
+    #dunn_score = round(dunn(dist_dunn, np.ravel(df_molecula_cluster_actual)),4)
     if vuelta == 1:
         st.markdown(f'**The Silhouette score is: {silhouette_avg}**')
         st.write(f'The Silhouette Score for random cluster is: {sil_random}') 
-    validation_round = [vuelta,silhouette_avg, sil_random, sil_random_st, db_score, db_random, db_random_st,ch_score, ch_random, ch_random_st,dunn_score, dunn_random, dunn_random_st]
+    validation_round = [vuelta,silhouette_avg, sil_random, sil_random_st, db_score, db_random, db_random_st,ch_score, ch_random, ch_random_st]
     st.write("-"*50)
     return validation_round
 
