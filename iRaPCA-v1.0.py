@@ -807,7 +807,7 @@ def clustering_final_function(uploaded_file_1):
     dataframe_final_1.rename(columns = {'CLUSTER': 'Molecules'}, inplace = True)
      
     validation_final = pd.DataFrame(validation_all)
-    validation_final.columns = ["Round","SIL score", "SIL random", "SD SIL random", "DB score", "DB random", "SD DB random","CH score", "CH random", "SD CH random", "Dunn score", "Dunn random", "SD Dunn random"]
+    validation_final.columns = ["Round","SIL score", "SIL random", "SD SIL random", "DB score", "DB random", "SD DB random","CH score", "CH random", "SD CH random"]
 
     
     if len(lista_nuevas_moleculas) == 0:
