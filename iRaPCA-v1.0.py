@@ -116,7 +116,7 @@ if clustering_setting == True:
     min_desc_subset = st.sidebar.slider('Min nº of descriptors for subset', 4, 10, 4, 1)
     max_desc_subset = st.sidebar.slider('Max nº of descriptors for subset', 10, 50, 25, 5)
     min_n_clusters = st.sidebar.slider('Min nº of clusters by round', 2, 10, 2, 1)
-    max_n_clusters = st.sidebar.slider('Max nº of clusters by round', 20, 50, 25, 5)
+    max_n_clusters = st.sidebar.slider('Max nº of clusters by round', 20, 50, 15, 5)
     range_n_clusters = list(range(min_n_clusters,max_n_clusters,1))
     maximo_porcentaje_del_total = st.sidebar.slider('Max relation "cluster/total"', 0.0, 1.0, 0.3, 0.1)
     vueltas_maximas = st.sidebar.slider('Max nº of rounds', 1, 10, 5, 1)
