@@ -1,5 +1,7 @@
 streamlit
 streamlit_tags
+pandas = 1.2.5
+numpy = 1.21.1
 rdkit-pypi
 molvs
 mordred
