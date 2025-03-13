@@ -1,6 +1,6 @@
 streamlit
 streamlit_tags
-pandas == 1.4.1
+pandas == 2.2.3
 numpy == 1.21.6
 rdkit-pypi
 molvs
