@@ -354,7 +354,7 @@ def clustering(subsets_ok, min_desc_subset: int, max_desc_subset: int, range_n_c
 ### Plot Silhouette coefficient vs K for each subset ###
 
 def grafica_silhouette(subsets_seleccionados,tabla_final,num_pca: int, range_n_clusters, limite_correlacion: float):
-    st.write(tabla_final)
+    
     if graficar_silhouette:
         fig = go.Figure()
         
@@ -576,11 +576,11 @@ def asignar_moleculas_para_RDCPCA(lista_cluster_para_seguir, lista_cluster_molec
 ### Sunburn plot of all the molecules ###
 
 def sunburn_plot(sunburnt):
-    st.write(sunburnt)
+    
     sunburnt.insert(loc = 0, column = 'All', value = 'All')
     sunburnt = sunburnt.fillna(' ')
     sunburnt['Molecules'] = 1
-    st.write(sunburnt)
+    
     #fig3 = plt1.sunburst(sunburnt, path = sunburnt.iloc[:,0:-1], values = 'Molecules')
     fig3 = plt1.sunburst(sunburnt, path=list(sunburnt.columns[:-1]), values="Molecules")
 
@@ -810,7 +810,7 @@ def clustering_final_function(uploaded_file_1):
 
     dataframe_final_1 = dataframe_final['CLUSTER'].value_counts().to_frame()
     dataframe_final_1.rename(columns = {'CLUSTER': 'Molecules'}, inplace = True)
-    st.write(dataframe_final_1)
+    
         
     validation_final = pd.DataFrame(validation_all)
     validation_final.columns = ["Round","SIL score", "SIL random", "SD SIL random", "DB score", "DB random", "SD DB random","CH score", "CH random", "SD CH random"]
