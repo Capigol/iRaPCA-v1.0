@@ -354,7 +354,7 @@ def clustering(subsets_ok, min_desc_subset: int, max_desc_subset: int, range_n_c
 ### Plot Silhouette coefficient vs K for each subset ###
 
 def grafica_silhouette(subsets_seleccionados,tabla_final,num_pca: int, range_n_clusters, limite_correlacion: float):
-    
+    st.write(tabla_final)
     if graficar_silhouette:
         fig = go.Figure()
         for num in subsets_seleccionados:
