@@ -357,6 +357,7 @@ def grafica_silhouette(subsets_seleccionados,tabla_final,num_pca: int, range_n_c
     st.write(tabla_final)
     if graficar_silhouette:
         fig = go.Figure()
+        st.write(tabla_final[30])
         for num in subsets_seleccionados:
             fig.add_trace(go.Scatter(x=range_n_clusters, y=tabla_final[num], 
                             mode='lines+markers', name= f'Subset {num}', 
