@@ -805,7 +805,7 @@ def clustering_final_function(uploaded_file_1):
         dataframe_final = previuos_data.join(dataframe_final, how = 'right')    
 
     dataframe_final_1 = dataframe_final['CLUSTER'].value_counts().to_frame()
-    dataframe_final_1.rename(columns = {'CLUSTER': 'Molecules'}, inplace = True)
+    dataframe_final_1 = dataframe_final_1.rename(columns = {'CLUSTER': 'Molecules'}, inplace = False)
      
     validation_final = pd.DataFrame(validation_all)
     validation_final.columns = ["Round","SIL score", "SIL random", "SD SIL random", "DB score", "DB random", "SD DB random","CH score", "CH random", "SD CH random"]
