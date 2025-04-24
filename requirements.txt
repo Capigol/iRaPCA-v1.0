@@ -1,4 +1,4 @@
-streamlit = 1.32.2
+streamlit == 1.32.2
 streamlit_tags
 pandas == 2.2.3
 numpy == 1.26.4
@@ -7,6 +7,6 @@ molvs
 mordred
 scikit-learn
 validclust
-plotly = 5.0.0
+plotly == 5.0.0
 matplotlib
 protobuf~=3.19.0
