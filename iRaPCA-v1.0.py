@@ -581,7 +581,9 @@ def sunburn_plot(sunburnt):
     sunburnt = sunburnt.fillna(' ')
     sunburnt['Molecules'] = 1
     st.write(sunburnt)
-    fig3 = plt1.sunburst(sunburnt, path = sunburnt.iloc[:,0:-1], values = 'Molecules')
+    #fig3 = plt1.sunburst(sunburnt, path = sunburnt.iloc[:,0:-1], values = 'Molecules')
+    fig3 = plt1.sunburst(sunburnt, path=list(sunburnt.columns[:-1]), values="Molecules")
+
     fig3.update_layout(title = "Sunburst Plot", title_x=0.5,
                        title_font = dict(size=25, family='Calibri', color='black'))
     fig3.update_layout(margin = dict(t=60,r=20,b=20,l=20), autosize = True)
