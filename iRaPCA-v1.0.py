@@ -576,10 +576,11 @@ def asignar_moleculas_para_RDCPCA(lista_cluster_para_seguir, lista_cluster_molec
 ### Sunburn plot of all the molecules ###
 
 def sunburn_plot(sunburnt):
+    st.write(sunburnt)
     sunburnt.insert(loc = 0, column = 'All', value = 'All')
     sunburnt = sunburnt.fillna(' ')
     sunburnt['Molecules'] = 1
-
+    st.write(sunburnt)
     fig3 = plt1.sunburst(sunburnt, path = sunburnt.iloc[:,0:-1], values = 'Molecules')
     fig3.update_layout(title = "Sunburst Plot", title_x=0.5,
                        title_font = dict(size=25, family='Calibri', color='black'))
